@@ -8,72 +8,73 @@ public class Main {
 
     public static void main(String[] args) {
         List<AnimalImpl> list = new LinkedList<>();
-        list.add(new Mammal("Panda", 1869));
-        list.add(new Mammal("Zebra", 1778));
-        list.add(new Mammal("Koala", 1816));
-        list.add(new Mammal("Sloth", 1804));
-        list.add(new Mammal("Raccoon", 1758));
-        list.add(new Mammal("Bigfoot", 2021));
+        list.add(new Mammal("Panda", 1869)); //Mammal
+        list.add(new Mammal("Zebra", 1778)); //Mammal
+        list.add(new Mammal("Koala", 1816)); //Mammal
+        list.add(new Mammal("Sloth", 1804)); //Mammal
+        list.add(new Mammal("Raccoon", 1758)); //Mammal
+        list.add(new Mammal("Bigfoot", 2021)); //Mammal
+        list.add(new Bird("Parrot", 1884)); //Bird
+        list.add(new Bird("Pigeon", 1837)); // Bird
+        list.add(new Bird("Peacock", 1821)); // Bird
+        list.add(new Bird("Toucan", 1758)); // Bird
+        list.add(new Bird("Swan", 1758)); // Bird
+        list.add(new Fish("Salmon", 1758)); //Fish
+        list.add(new Fish("Catfish", 1821)); // Fish
+        list.add(new Fish("Perch", 1758)); // Fish
 
-        list.add(new Bird("Parrot", 1884));
-        list.add(new Bird("Pigeon", 1837));
-        list.add(new Bird("Peacock", 1821));
-        list.add(new Bird("Toucan", 1758));
-        list.add(new Bird("Swan", 1758));
 
-        list.add(new Fish("Salmon", 1758));
-        list.add(new Fish("Catfish", 1821));
-        list.add(new Fish("Perch", 1758));
-
-        // for (AnimalImpl animal : list) {
-        // animal.breath();
-        // System.out.println("id: " + animal.getId() + " | " + animal.getName() + " | "
-        // + animal.getYearDiscovered() + " | " + animal.breath());
-        //
-        // }
-        // List all the animals in descending order by year named
+/* DESCENDING - YEAR */
+        System.out.println("-Descending By Year");
         list.sort((a1, a2) -> a2.getName().compareToIgnoreCase(a1.getName()));
-        list.forEach(name -> System.out.println(name.getName()));
+        list.forEach(name -> System.out.println("  •Name: " + name.getName()));
+        System.out.println("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
 
-        System.out.println(
-                "================================================================================================");
-        // List all the animals alphabetically
 
+
+/* ALPHABETICALLY */
+        System.out.println("-Alphabetically");
         list.sort((a1, a2) -> a1.getName().compareToIgnoreCase(a2.getName()));
-        list.forEach(name -> System.out.println(name.getName()));
-        System.out.println(
-                "=================================================================================================");
-        // List all the animals order by how they move
-        list.sort((a1, a2) -> a1.move().compareToIgnoreCase(a2.move()));
-        list.forEach(name -> System.out.println(name.getName() + " | " + name.move()));
+        list.forEach(name -> System.out.println("  •Name: " + name.getName()));
+        System.out.println("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
 
-        System.out.println(
-                "=====================================================================================================");
-        // List only those animals the breath with lungs
+
+
+/* WAY OF MOVEMENT */
+        System.out.println("-Way Of Movement");
+        list.sort((a1, a2) -> a1.move().compareToIgnoreCase(a2.move()));
+        list.forEach(name -> System.out.println("  •" + name.getName() + " ~ " + name.move()));
+        System.out.println("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
+
+
+
+/* WITH LUNGS */
+        System.out.println("-With Lungs");
         List<AnimalImpl> newList = list.stream().filter(a -> a.breath() == "lungs").collect(Collectors.toList());
         newList.forEach(name -> System.out.println(name.getName() + " | " + name.breath()));
+        System.out.println("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
 
-        System.out.println(
-                "======================================================================================================");
-        // List only those animals that breath with lungs and were named in 1758
+
+
+/* LUNGS & 1758 */
+        System.out.println("-Lungs And 1758");
         newList = list.stream().filter(a -> a.breath() == "lungs" && a.getYearDiscovered() == 1758)
-                .collect(Collectors.toList());
-        newList.forEach(
-                name -> System.out.println(name.getName() + " | " + name.breath() + " | " + name.getYearDiscovered()));
+        .collect(Collectors.toList());
+        newList.forEach(name -> System.out.println(name.getName() + " | " + name.breath() + " | " + name.getYearDiscovered()));
+        System.out.println("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
 
-        System.out
-                .println("==========================================================================================");
-        // List only those animals that lay eggs and breath with lungs
-        newList = list.stream().filter(a -> a.breath() == "lungs" && a.reproduce() == "eggs")
-                .collect(Collectors.toList());
-        newList.forEach(name -> System.out.println(name.getName() + " | " + name.breath() + " | " + name.reproduce()));
 
-        System.out.println(
-                "===============================================================================================");
-        // List alphabetically only those animals that were named in 1758
+
+/* EGGS & LUNGS */
+        System.out.println("-Legs And With Lungs");
+        newList = list.stream().filter(a -> a.breath() == "lungs" && a.reproduce() == "eggs").collect(Collectors.toList());
+        newList.forEach(name -> System.out.println("  •Name: " + name.getName() + " ~ " + name.breath() + " ~ " + name.reproduce()));
+        System.out.println("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
+
+/* ALPHABETICALLY - 1758 */
+        System.out.println("-Alphabetically And 1758");
         newList = list.stream().filter(a -> a.getYearDiscovered() == 1758).collect(Collectors.toList());
         newList.sort((a1, a2) -> a1.move().compareToIgnoreCase(a2.move()));
-        newList.forEach(name -> System.out.println(name.getName()));
-
+        newList.forEach(name -> System.out.println("  •" + name.getName()));
     }
 }
