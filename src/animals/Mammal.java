@@ -8,17 +8,17 @@ public class Mammal extends AnimalImpl {
 
     @Override
     public String move() {
-        return "walk";
+        return "Walk";
     }
 
     @Override
     public String breath() {
-        return "lungs";
+        return "Lungs";
     }
 
     @Override
     public String reproduce() {
-        return "live births";
+        return "Live Birth";
     }
 
     @Override
