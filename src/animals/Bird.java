@@ -8,17 +8,17 @@ public class Bird extends AnimalImpl {
 
     @Override
     public String move() {
-        return "fly";
+        return "Fly";
     }
 
     @Override
     public String breath() {
-        return "lungs";
+        return "Lungs";
     }
 
     @Override
     public String reproduce() {
-        return "eggs";
+        return "Eggs";
     }
 
     @Override
