@@ -50,24 +50,24 @@ public class Main {
 
 /* WITH LUNGS */
         System.out.println("-With Lungs");
-        List<AnimalImpl> newList = list.stream().filter(a -> a.breath() == "lungs").collect(Collectors.toList());
-        newList.forEach(name -> System.out.println(name.getName() + " | " + name.breath()));
+        List<AnimalImpl> newList = list.stream().filter(a -> a.breath() == "Lungs").collect(Collectors.toList());
+        newList.forEach(name -> System.out.println(name.getName() + " ~ " + name.breath()));
         System.out.println("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
 
 
 
 /* LUNGS & 1758 */
         System.out.println("-Lungs And 1758");
-        newList = list.stream().filter(a -> a.breath() == "lungs" && a.getYearDiscovered() == 1758)
+        newList = list.stream().filter(a -> a.breath() == "Lungs" && a.getYearDiscovered() == 1758)
         .collect(Collectors.toList());
-        newList.forEach(name -> System.out.println(name.getName() + " | " + name.breath() + " | " + name.getYearDiscovered()));
+        newList.forEach(name -> System.out.println(name.getName() + " ~ " + name.breath() + " ~ " + name.getYearDiscovered()));
         System.out.println("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
 
 
 
 /* EGGS & LUNGS */
         System.out.println("-Legs And With Lungs");
-        newList = list.stream().filter(a -> a.breath() == "lungs" && a.reproduce() == "eggs").collect(Collectors.toList());
+        newList = list.stream().filter(a -> a.breath() == "Lungs" && a.reproduce() == "Eggs").collect(Collectors.toList());
         newList.forEach(name -> System.out.println("  •Name: " + name.getName() + " ~ " + name.breath() + " ~ " + name.reproduce()));
         System.out.println("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _");
 
